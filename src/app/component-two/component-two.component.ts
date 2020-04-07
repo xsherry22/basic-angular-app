@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { PersonService } from '../person.service';
+import { Person } from '../Person';
+
 
 @Component({
   selector: 'app-component-two',
@@ -6,10 +9,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./component-two.component.css']
 })
 export class ComponentTwoComponent implements OnInit {
+  person: Person[];
 
-  constructor() { }
+  constructor(private personService: PersonService) { }
 
   ngOnInit(): void {
+    this.person = this.personService.getPerson();
   }
 
 }
